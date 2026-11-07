@@ -43,7 +43,7 @@
             'glow-cyan': '0 0 25px -5px rgba(0, 242, 254, 0.4)',
             'glow-emerald': '0 0 25px -5px rgba(0, 245, 160, 0.4)',
             'glow-gold': '0 0 25px -5px rgba(255, 215, 0, 0.4)',
-            'glass-card': '0 12px 40px 0 rgba(0, 0, 0, 0.6)',
+            'glow-purple': '0 0 25px -5px rgba(168, 85, 247, 0.4)',
           }
         }
       }
@@ -83,17 +83,17 @@
 
     /* Luxury Obsidian Glass Panel */
     .glass-panel {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .glass-card {
-      background: linear-gradient(145deg, rgba(21, 33, 59, 0.8) 0%, rgba(10, 15, 29, 0.9) 100%);
+      background: linear-gradient(145deg, rgba(21, 33, 59, 0.82) 0%, rgba(10, 15, 29, 0.92) 100%);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
@@ -109,7 +109,7 @@
 
     .glass-card:hover {
       border-color: rgba(0, 242, 254, 0.35);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(0, 242, 254, 0.15);
     }
 
@@ -118,8 +118,8 @@
     }
 
     .glass-input {
-      background: rgba(6, 9, 17, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(6, 9, 17, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #f8fafc;
       transition: all 0.2s ease;
     }
@@ -130,15 +130,15 @@
       box-shadow: 0 0 16px rgba(0, 242, 254, 0.3);
     }
 
-    /* Pulse Glow Animation for Card Highlight */
-    @keyframes highlightPulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.8); border-color: #00f2fe; }
-      50% { box-shadow: 0 0 35px 10px rgba(0, 242, 254, 0.5); border-color: #00f2fe; }
-      100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+    /* Direct Quantity Inline Input */
+    .qty-inline-input {
+      appearance: textfield;
+      -moz-appearance: textfield;
     }
-
-    .animate-highlight-card {
-      animation: highlightPulse 2s cubic-bezier(0, 0, 0.2, 1);
+    .qty-inline-input::-webkit-outer-spin-button,
+    .qty-inline-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
 
     /* Shimmer Effect for Accent Text */
@@ -175,39 +175,20 @@
               KOJIRO<span class="shimmer-text font-extrabold">STOCK</span>
             </h1>
             <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-md bg-cyan-500/15 text-cyanNeon border border-cyanNeon/30">
-              GPO V3.0
+              GPO V3.5 PRO
             </span>
           </div>
-          <p class="text-[11px] text-slate-400">ระบบเช็กสต็อกไอเทม & จัดการคลังรหัสเกม (Cloud-Enabled)</p>
+          <p class="text-[11px] text-slate-400">ระบบจัดการสต็อกรหัส & นำเข้าไอเทมหลายรายการ (Fast Workflow)</p>
         </div>
       </div>
 
-      <!-- Live Global Spotlight Search Trigger -->
-      <div class="flex-1 max-w-md mx-2">
-        <button onclick="openSpotlightModal()" class="w-full glass-input px-4 py-2.5 rounded-2xl flex items-center justify-between text-slate-400 hover:text-slate-200 text-xs sm:text-sm group">
-          <div class="flex items-center gap-2.5">
-            <i class="fa-solid fa-magnifying-glass text-cyanNeon group-hover:scale-110 transition-transform"></i>
-            <span class="truncate">ค้นหาไอเทม (Pbag, Mochi) หรือชื่อรหัส...</span>
-          </div>
-          <kbd class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-mono bg-obsidian-950 border border-white/10 rounded-md text-slate-400">
-            <span>Ctrl</span> K
-          </kbd>
-        </button>
-      </div>
-
       <!-- Action Tools & Settings -->
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         
-        <!-- Cloud Sync Button -->
-        <button onclick="openCloudModal()" title="ซิงก์ข้อมูลข้ามคอมและมือถือ" class="h-10 px-3 rounded-2xl bg-gradient-to-r from-blue-600/30 to-violet-600/30 border border-cyanNeon/40 text-cyanNeon hover:bg-cyanNeon/20 flex items-center gap-2 text-xs transition-all shadow-glow-cyan">
-          <i class="fa-solid fa-cloud-arrow-up text-cyanNeon animate-pulse"></i>
-          <span class="hidden md:inline font-bold">Cloud Sync</span>
-        </button>
-
-        <!-- Mobile QR Code Button -->
-        <button onclick="openQrModal()" title="สแกนเปิดบนมือถือ" class="h-10 px-3 rounded-2xl bg-obsidian-900 border border-white/10 text-slate-300 hover:text-cyanNeon flex items-center gap-2 text-xs transition-all">
-          <i class="fa-solid fa-qrcode text-violetNeon"></i>
-          <span class="hidden lg:inline font-medium">QR Code</span>
+        <!-- Batch Distribute Across Multiple Accounts Button -->
+        <button onclick="openBatchDistributeModal()" title="กระจายของเข้าหลายรหัสพร้อมกัน" class="h-10 px-3.5 rounded-2xl bg-gradient-to-r from-purple-600/30 to-violet-600/30 border border-violetNeon/50 text-violetNeon hover:bg-violetNeon/20 flex items-center gap-2 text-xs font-bold transition-all shadow-glow-purple">
+          <i class="fa-solid fa-share-nodes text-sm"></i>
+          <span>📦 กระจายของหลายรหัส</span>
         </button>
 
         <!-- Sound FX Toggle -->
@@ -230,7 +211,7 @@
         <!-- Add Account Button -->
         <button onclick="openAccountModal()" class="h-10 px-4 rounded-2xl bg-gradient-to-r from-cyanNeon to-blue-500 text-obsidian-950 font-bold text-xs shadow-glow-cyan transition-all flex items-center gap-2 hover:opacity-90">
           <i class="fa-solid fa-plus text-sm"></i>
-          <span class="hidden sm:inline">เพิ่มรหัสใหม่</span>
+          <span>เพิ่มรหัสใหม่</span>
         </button>
 
       </div>
@@ -244,7 +225,7 @@
       <div class="flex items-center gap-2.5 text-xs text-slate-400 font-semibold uppercase tracking-wider shrink-0">
         <span id="accountCountBadge" class="px-2.5 py-1 rounded-xl bg-cyan-500/15 text-cyanNeon border border-cyanNeon/30 font-mono font-bold">0 รหัส</span>
         <i class="fa-solid fa-chart-pie text-cyanNeon animate-pulse ml-1"></i>
-        <span>ยอดไอเทมรวมทั้งร้าน:</span>
+        <span>ยอดไอเทมพร้อมขาย (ไม่รวมของหมด):</span>
       </div>
 
       <!-- Live Items Pill Chips -->
@@ -274,7 +255,7 @@
           <option value="NAME_ASC">ชื่อรหัส (A-Z)</option>
         </select>
 
-        <!-- Backup & Data Tools Dropdown (Fixed Z-Index Overlap) -->
+        <!-- Backup & Data Tools Dropdown (High Z-Index Fix) -->
         <div class="relative inline-block z-40">
           <button onclick="toggleBackupMenu(event)" class="glass-input px-3.5 py-2 rounded-2xl text-xs font-semibold text-slate-200 hover:text-cyanNeon flex items-center gap-1.5 transition-all cursor-pointer border border-cyanNeon/30 shadow-glow-cyan bg-obsidian-900">
             <i class="fa-solid fa-database text-cyanNeon"></i>
@@ -291,9 +272,9 @@
               <span>📤 ดึงข้อมูลกลับ (JSON)</span>
               <input type="file" id="importFileInput" onchange="importBackup(event)" accept=".json" class="hidden">
             </label>
-            <button onclick="resetAllData(); closeAllDropdowns();" class="w-full text-left px-3.5 py-2.5 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2.5 font-semibold border-t border-white/10 mt-1 pt-2.5 transition-colors">
+            <button onclick="promptResetAllData(); closeAllDropdowns();" class="w-full text-left px-3.5 py-2.5 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2.5 font-semibold border-t border-white/10 mt-1 pt-2.5 transition-colors">
               <i class="fa-solid fa-arrow-rotate-left"></i>
-              <span>รีเซ็ตเป็นค่าสาธิต</span>
+              <span>รีเซ็ตเป็นค่าเริ่มต้น</span>
             </button>
           </div>
         </div>
@@ -301,7 +282,7 @@
       </div>
     </div>
 
-    <!-- ==================== ACCOUNTS DISPLAY AREA ==================== -->
+    <!-- Accounts Display Grid / List -->
     <div id="accountContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       <!-- Accounts rendered dynamically by JS -->
     </div>
@@ -361,7 +342,7 @@
     </div>
   </div>
 
-  <!-- ==================== MODAL 2: ADD ITEM CUSTOM / PRESET ==================== -->
+  <!-- ==================== MODAL 2: ADD SINGLE ITEM ==================== -->
   <div id="itemModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
     <div class="glass-panel max-w-md w-full rounded-3xl border border-white/10 p-6 shadow-2xl relative">
       
@@ -371,7 +352,7 @@
             <i class="fa-solid fa-box-archive text-sm"></i>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white">เพิ่มไอเทมเข้ารหัส</h3>
+            <h3 class="text-base font-bold text-white">เพิ่มไอเทมทีละชิ้น</h3>
             <p id="itemModalTargetAccount" class="text-xs text-slate-400">Target Account</p>
           </div>
         </div>
@@ -384,7 +365,7 @@
         <input type="hidden" id="itemAccId">
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">เลือกจากรายการสำเร็จรูป GPO หรือ พิมพ์ระบุเอง</label>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">เลือกจากรายการสำเร็จรูป หรือ พิมพ์เอง</label>
           <select id="itemPresetSelect" onchange="handlePresetSelect(this.value)" class="w-full glass-input px-4 py-2.5 rounded-2xl text-xs sm:text-sm mb-2 text-goldNeon cursor-pointer">
             <!-- Populated via JS -->
           </select>
@@ -398,7 +379,7 @@
             <button type="button" onclick="adjustInputQty(-1)" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold flex items-center justify-center">
               <i class="fa-solid fa-minus"></i>
             </button>
-            <input type="number" id="itemQuantity" min="1" value="1" required class="flex-1 glass-input px-4 py-2 rounded-2xl text-base font-mono font-bold text-center">
+            <input type="number" id="itemQuantity" min="0" value="1" required class="flex-1 glass-input px-4 py-2 rounded-2xl text-base font-mono font-bold text-center">
             <button type="button" onclick="adjustInputQty(1)" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold flex items-center justify-center">
               <i class="fa-solid fa-plus"></i>
             </button>
@@ -408,112 +389,173 @@
         <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10 mt-6">
           <button type="button" onclick="closeItemModal()" class="px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium">ยกเลิก</button>
           <button type="submit" class="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-goldNeon to-amber-500 text-obsidian-950 font-extrabold text-xs shadow-glow-gold">
-            + เพิ่มเข้าสต็อก
+            + บันทึกไอเทม
           </button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- ==================== MODAL 3: CLOUD SYNC ==================== -->
-  <div id="cloudModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
-    <div class="glass-panel max-w-md w-full rounded-3xl border border-cyanNeon/40 p-6 shadow-glow-cyan relative">
+  <!-- ==================== MODAL 3: MULTI-ITEM BULK ADD MODAL (CHECKLIST + PASTE TEXT) ==================== -->
+  <div id="bulkAddModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
+    <div class="glass-panel max-w-2xl w-full rounded-3xl border border-cyanNeon/40 p-6 shadow-glow-cyan relative flex flex-col max-h-[90vh]">
       
+      <!-- Modal Header -->
       <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-xl bg-cyan-500/15 text-cyanNeon flex items-center justify-center">
-            <i class="fa-solid fa-cloud text-sm"></i>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-cyan-500/15 text-cyanNeon flex items-center justify-center text-lg">
+            <i class="fa-solid fa-layer-group"></i>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white">Cloud Sync (ซิงก์ข้ามคอม/มือถือ)</h3>
-            <p class="text-[11px] text-slate-400">ใช้ Passcode เดียวกันบนทุกอุปกรณ์เพื่อแชร์ข้อมูล</p>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              เพิ่มหลายไอเทมพร้อมกัน (Bulk Add)
+            </h3>
+            <p id="bulkAddTargetAccountText" class="text-xs text-cyanNeon font-mono">กำลังเพิ่มเข้ารหัส: -</p>
           </div>
         </div>
-        <button onclick="closeCloudModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white">
+        <button onclick="closeBulkAddModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <div class="space-y-4">
+      <!-- Mode Tabs -->
+      <div class="flex items-center gap-2 p-1 bg-obsidian-950 rounded-2xl border border-white/10 mb-4">
+        <button onclick="switchBulkTab('checklist')" id="tabBtnChecklist" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-cyanNeon text-obsidian-950 shadow-glow-cyan">
+          <i class="fa-solid fa-list-check mr-1.5"></i> ติ๊กเลือกรายการ (Checklist)
+        </button>
+        <button onclick="switchBulkTab('paste')" id="tabBtnPaste" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+          <i class="fa-solid fa-paste mr-1.5"></i> วางข้อความรวดเดียว (Paste Text)
+        </button>
+      </div>
+
+      <!-- TAB 1: CHECKLIST VIEW -->
+      <div id="bulkChecklistTab" class="flex-1 overflow-y-auto pr-1 space-y-4">
+        <div class="flex items-center justify-between text-xs text-slate-400 px-1">
+          <span>ติ๊กเลือกไอเทมที่ต้องการเพิ่ม และใส่จำนวนได้ทันที:</span>
+          <div class="flex items-center gap-2">
+            <button onclick="bulkChecklistSelectAll(true)" class="text-cyanNeon hover:underline text-[11px]">เลือกทั้งหมด</button>
+            <span>•</span>
+            <button onclick="bulkChecklistSelectAll(false)" class="text-slate-400 hover:underline text-[11px]">ล้างที่เลือก</button>
+          </div>
+        </div>
+
+        <div id="bulkCategoriesContainer" class="space-y-4">
+          <!-- Categories with items populated by JS -->
+        </div>
+      </div>
+
+      <!-- TAB 2: PASTE TEXT VIEW -->
+      <div id="bulkPasteTab" class="hidden flex-1 flex-col space-y-3">
+        <div class="bg-obsidian-950/80 p-3 rounded-2xl border border-white/5 text-xs text-slate-300">
+          <p class="font-semibold text-cyanNeon mb-1"><i class="fa-solid fa-circle-info mr-1"></i> รูปแบบที่รองรับ (พิมพ์หรือก๊อปปี้มาวางได้เลย):</p>
+          <p class="font-mono text-[11px] text-slate-400">
+            Prestige Bag 2<br>
+            Mythical Chest x5<br>
+            Mochi : 1<br>
+            Dark Root 10
+          </p>
+        </div>
+
+        <textarea id="bulkPasteTextarea" oninput="previewParsedPasteText()" rows="7" placeholder="วางรายการไอเทมของคุณที่นี่..." class="w-full glass-input p-3 rounded-2xl text-xs font-mono"></textarea>
+        
+        <!-- Live Parse Preview -->
+        <div class="flex-1 overflow-y-auto max-h-36 p-2 rounded-2xl bg-obsidian-950/60 border border-white/5">
+          <div class="text-[11px] text-slate-400 font-semibold mb-1 flex items-center justify-between">
+            <span>ตัวอย่างรายการที่ระบบตรวจพบ:</span>
+            <span id="parsedItemsCount" class="text-emeraldNeon font-mono">0 รายการ</span>
+          </div>
+          <div id="parsedItemsPreview" class="text-xs space-y-1 font-mono text-slate-300">
+            <span class="text-slate-500 italic">ยังไม่มีข้อความ...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between gap-3">
+        <button onclick="closeBulkAddModal()" class="px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium">ยกเลิก</button>
+        <button onclick="submitBulkAdd()" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-cyanNeon to-emeraldNeon text-obsidian-950 font-extrabold text-xs shadow-glow-cyan flex items-center gap-2 hover:opacity-90">
+          <i class="fa-solid fa-check-double text-sm"></i>
+          <span>บันทึกเพิ่มไอเทมทั้งหมดเข้ารหัส</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 4: BATCH DISTRIBUTE ACROSS MULTIPLE ACCOUNTS ==================== -->
+  <div id="batchDistributeModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
+    <div class="glass-panel max-w-xl w-full rounded-3xl border border-violetNeon/40 p-6 shadow-glow-purple relative flex flex-col max-h-[90vh]">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-violet-500/15 text-violetNeon flex items-center justify-center text-lg">
+            <i class="fa-solid fa-share-nodes"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">กระจายของเข้าหลายรหัสพร้อมกัน</h3>
+            <p class="text-[11px] text-slate-400">ใส่ไอเทมชิ้นเดียวกันเข้าหลายๆ รหัสในคลิกเดียว</p>
+          </div>
+        </div>
+        <button onclick="closeBatchDistributeModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto space-y-4 pr-1">
+        
+        <!-- Step 1: Select Accounts -->
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Passcode ส่วนตัวของคุณ *</label>
-          <div class="flex gap-2">
-            <input type="text" id="cloudPasscode" placeholder="เช่น KOJIRO-GPO-8888" class="flex-1 glass-input px-4 py-2.5 rounded-2xl text-sm font-mono text-cyanNeon font-bold">
-            <button onclick="generateRandomPasscode()" class="px-3 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold">
-              สุ่มรหัส
-            </button>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">1. เลือกรหัสปลายทางที่ต้องการใส่ของ</label>
+            <div class="flex items-center gap-2 text-[11px]">
+              <button onclick="toggleSelectAllBatchAccounts(true)" class="text-cyanNeon hover:underline">เลือกทั้งหมด</button>
+              <span>•</span>
+              <button onclick="toggleSelectAllBatchAccounts(false)" class="text-slate-400 hover:underline">ยกเลิก</button>
+            </div>
           </div>
-          <p class="text-[11px] text-slate-400 mt-1">ตั้งรหัสผ่านอะไรก็ได้ที่คุณจำได้ เพื่อเอาไปพิมพ์บนมือถือหรือคอมอีกเครื่อง</p>
+          <div id="batchAccountsList" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 bg-obsidian-950/70 border border-white/5 rounded-2xl">
+            <!-- Rendered by JS -->
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-3 pt-2">
-          <button onclick="uploadToCloud()" class="py-3 px-4 rounded-2xl bg-gradient-to-r from-cyanNeon to-blue-600 text-obsidian-950 font-bold text-xs shadow-glow-cyan flex flex-col items-center justify-center gap-1 hover:opacity-90">
-            <i class="fa-solid fa-cloud-arrow-up text-base"></i>
-            <span>📤 ส่งข้อมูลขึ้น Cloud</span>
-          </button>
-          <button onclick="downloadFromCloud()" class="py-3 px-4 rounded-2xl bg-gradient-to-r from-emeraldNeon to-teal-600 text-obsidian-950 font-bold text-xs shadow-glow-emerald flex flex-col items-center justify-center gap-1 hover:opacity-90">
-            <i class="fa-solid fa-cloud-arrow-down text-base"></i>
-            <span>📥 ดึงข้อมูลลงเครื่องนี้</span>
-          </button>
+        <!-- Step 2: Select Item -->
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">2. เลือกไอเทมที่ต้องการกระจาย</label>
+          <select id="batchItemPreset" onchange="document.getElementById('batchCustomItemName').value = this.value" class="w-full glass-input px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm mb-2 text-goldNeon cursor-pointer">
+            <!-- Options populated by JS -->
+          </select>
+          <input type="text" id="batchCustomItemName" placeholder="หรือระบุชื่อไอเทม..." class="w-full glass-input px-3.5 py-2.5 rounded-2xl text-xs">
         </div>
 
-        <div id="cloudStatus" class="hidden p-3 rounded-2xl bg-obsidian-950 border border-white/10 text-xs text-center font-mono">
-          <!-- Status message injected by JS -->
+        <!-- Step 3: Quantity & Operation Mode -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">3. จำนวนชิ้นต่อรหัส</label>
+            <input type="number" id="batchItemQuantity" min="0" value="1" class="w-full glass-input px-3.5 py-2.5 rounded-2xl text-sm font-mono font-bold text-center text-cyanNeon">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">รูปแบบการใส่ของ</label>
+            <select id="batchAddMode" class="w-full glass-input px-3.5 py-2.5 rounded-2xl text-xs font-semibold text-slate-200">
+              <option value="ADD">+ บวกเพิ่มจากเดิม (Add to Stock)</option>
+              <option value="SET">= ตั้งค่าตัวเลขนี้เท่ากันหมด (Set Value)</option>
+            </select>
+          </div>
         </div>
+
       </div>
 
-    </div>
-  </div>
-
-  <!-- ==================== MODAL 4: MOBILE QR CODE ==================== -->
-  <div id="qrModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
-    <div class="glass-panel max-w-sm w-full rounded-3xl border border-violetNeon/40 p-6 shadow-2xl text-center relative">
-      
-      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-qrcode text-violetNeon"></i>
-          <h3 class="text-base font-bold text-white">สแกนเปิดบนมือถือ</h3>
-        </div>
-        <button onclick="closeQrModal()" class="w-8 h-8 rounded-xl bg-white/5 text-slate-400 hover:text-white">
-          <i class="fa-solid fa-xmark"></i>
+      <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-end gap-3">
+        <button onclick="closeBatchDistributeModal()" class="px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium">ยกเลิก</button>
+        <button onclick="submitBatchDistribute()" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-violetNeon to-purple-600 text-white font-bold text-xs shadow-glow-purple flex items-center gap-2 hover:opacity-90">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>เริ่มกระจายของเข้ารหัสที่เลือก</span>
         </button>
       </div>
 
-      <div class="bg-white p-4 rounded-2xl inline-block shadow-2xl mb-3 border border-white/20">
-        <img id="qrImage" src="" alt="QR Code" class="w-48 h-48 mx-auto">
-      </div>
-
-      <p class="text-xs text-slate-300 font-medium mb-1">ใช้กล้องมือถือสแกนเพื่อเปิดเว็บนี้ได้ทันที</p>
-      <p class="text-[11px] text-slate-500">หลังจากเปิดบนมือถือแล้ว ให้ใช้ฟีเจอร์ Cloud Sync ในการดึงข้อมูลคลังเข้ามาครับ</p>
-
     </div>
   </div>
 
-  <!-- ==================== MODAL 5: SPOTLIGHT INSTANT SEARCH ==================== -->
-  <div id="spotlightModal" class="fixed inset-0 z-50 hidden items-start justify-center bg-obsidian-950/85 backdrop-blur-md p-4 pt-16 lg:pt-20">
-    <div class="glass-panel max-w-2xl w-full rounded-3xl border border-cyanNeon/40 p-6 shadow-glow-cyan relative flex flex-col max-h-[80vh]">
-      
-      <div class="relative mb-4">
-        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-cyanNeon text-lg"></i>
-        <input type="text" id="spotlightInput" oninput="executeSpotlightSearch()" placeholder="พิมพ์ชื่อไอเทม (Pbag, Mochi, Chest, Tori) หรือชื่อรหัส..." class="w-full glass-input pl-12 pr-12 py-3.5 rounded-2xl text-base focus:ring-2 focus:ring-cyanNeon">
-        <button onclick="closeSpotlightModal()" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center">
-          <i class="fa-solid fa-xmark text-sm"></i>
-        </button>
-      </div>
-
-      <div id="spotlightResults" class="flex-1 overflow-y-auto space-y-3 pr-1">
-        <!-- Live search results injected by JS -->
-      </div>
-
-      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 mt-3">
-        <span><i class="fa-solid fa-bolt text-goldNeon mr-1"></i> ค้นหาทุกไอเทมและทุกรหัสทันที</span>
-        <span class="text-[11px]">กด <kbd class="px-1.5 py-0.5 bg-obsidian-900 border border-white/10 rounded">Esc</kbd> เพื่อปิด</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ==================== DRAWER 6: ACTION HISTORY & UNDO ==================== -->
+  <!-- ==================== DRAWER: ACTION HISTORY & UNDO ==================== -->
   <div id="historyDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-sm glass-panel border-l border-white/10 p-5 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
     <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
       <div class="flex items-center gap-2">
@@ -529,11 +571,28 @@
       <!-- History items injected by JS -->
     </div>
 
-    <div class="pt-4 border-t border-white/10 mt-auto flex items-center justify-between">
-      <button onclick="undoLastAction()" id="undoBtn" class="w-full py-2.5 rounded-2xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-400/30 text-xs font-bold transition-all flex items-center justify-center gap-2">
+    <div class="pt-4 border-t border-white/10 mt-auto">
+      <button onclick="undoLastAction()" class="w-full py-2.5 rounded-2xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-400/30 text-xs font-bold transition-all flex items-center justify-center gap-2">
         <i class="fa-solid fa-rotate-left"></i>
         <span>Undo ย้อนกลับรายการล่าสุด</span>
       </button>
+    </div>
+  </div>
+
+  <!-- ==================== CUSTOM OBSIDIAN CONFIRM MODAL (NO ALERT/CONFIRM) ==================== -->
+  <div id="customConfirmModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-obsidian-950/85 backdrop-blur-md p-4">
+    <div class="glass-panel max-w-sm w-full rounded-3xl border border-rose-500/40 p-6 shadow-2xl relative text-center">
+      <div class="w-12 h-12 rounded-2xl bg-rose-500/15 text-rose-400 flex items-center justify-center mx-auto mb-3 text-xl">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 id="confirmModalTitle" class="text-base font-bold text-white mb-2">ยืนยันการดำเนินการ</h3>
+      <p id="confirmModalMessage" class="text-xs text-slate-300 mb-6 leading-relaxed">คุณแน่ใจหรือไม่ว่าต้องการดำเนินการนี้?</p>
+      <div class="flex items-center justify-center gap-3">
+        <button onclick="closeConfirmModal(false)" class="flex-1 py-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium">ยกเลิก</button>
+        <button id="confirmModalActionBtn" onclick="closeConfirmModal(true)" class="flex-1 py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-lg transition-colors">
+          ยืนยัน
+        </button>
+      </div>
     </div>
   </div>
 
@@ -556,93 +615,143 @@
   <!-- ==================== APPLICATION LOGIC & JAVASCRIPT ==================== -->
   <script>
     /* ==========================================================================
-       1. DATABASE & PRESET CONFIGURATION
+       1. DATABASE & GPO COMPREHENSIVE CATEGORIES
        ========================================================================== */
     const STORAGE_KEY = "KOJIRO_STOCK_GPO_DB_PRO_V3";
 
-    const GPO_ITEM_PRESETS = [
+    // Standard preset loaded when clicking "ใส่เซ็ตของยอดนิยม (0 ชิ้น)"
+    const GPO_STANDARD_TEMPLATE = [
       { name: "Prestige Bag (Pbag)", icon: "🎒" },
+      { name: "All-Seeing Eye (ASE)", icon: "👁️" },
       { name: "Mythical Chest", icon: "📦" },
       { name: "Legendary Chest", icon: "🎁" },
       { name: "Rare Chest", icon: "💼" },
-      { name: "Dark Blade (Yoru)", icon: "🗡️" },
       { name: "Mochi Fruit (Dough)", icon: "🍡" },
       { name: "Tori Fruit (Phoenix)", icon: "🦅" },
       { name: "Ope Fruit (Op-Op)", icon: "🌐" },
       { name: "Buddha Fruit (Hito)", icon: "🧘" },
-      { name: "Venom Fruit", icon: "🐍" },
-      { name: "Dragon Fruit (Uo)", icon: "🐉" },
-      { name: "Mera Fruit (Flame)", icon: "🔥" },
-      { name: "Magu Fruit (Magma)", icon: "🌋" },
-      { name: "Ito Fruit (String)", icon: "🧵" },
-      { name: "Goro Fruit (Rumble)", icon: "⚡" },
-      { name: "Pika Fruit (Light)", icon: "💡" },
-      { name: "Yami Fruit (Darkness)", icon: "🌑" },
+      { name: "Dark Blade (Yoru)", icon: "🗡️" },
       { name: "SP Reroll", icon: "🔄" },
       { name: "Race Reroll", icon: "🧬" },
-      { name: "Stat Reset Scroll", icon: "📜" },
-      { name: "Peli Pack", icon: "🪙" }
+      { name: "Dark Root", icon: "🌱" },
+      { name: "Stat Reset Scroll", icon: "📜" }
     ];
 
-    const FAST_ADD_SHORTCUTS = [
-      { name: "Prestige Bag (Pbag)", icon: "🎒" },
-      { name: "Mythical Chest", icon: "📦" },
-      { name: "Legendary Chest", icon: "🎁" },
-      { name: "Rare Chest", icon: "💼" },
-      { name: "Mochi Fruit (Dough)", icon: "🍡" },
-      { name: "Tori Fruit (Phoenix)", icon: "🦅" },
-      { name: "Ope Fruit (Op-Op)", icon: "🌐" },
-      { name: "Buddha Fruit (Hito)", icon: "🧘" },
-      { name: "Dark Blade (Yoru)", icon: "🗡️" },
-      { name: "SP Reroll", icon: "🔄" }
+    // Categorized items for Bulk Checklist
+    const GPO_CATEGORIES = [
+      {
+        id: "chests",
+        name: "📦 กล่องสมบัติ (Chests)",
+        items: [
+          { name: "Mythical Chest", icon: "📦" },
+          { name: "Legendary Chest", icon: "🎁" },
+          { name: "Rare Chest", icon: "💼" },
+          { name: "Common Chest", icon: "🧰" },
+          { name: "Hoverboard Chest", icon: "🛹" }
+        ]
+      },
+      {
+        id: "fruits",
+        name: "🍎 ผลปีศาจ (Devil Fruits)",
+        items: [
+          { name: "Mochi Fruit (Dough)", icon: "🍡" },
+          { name: "Tori Fruit (Phoenix)", icon: "🦅" },
+          { name: "Ope Fruit (Op-Op)", icon: "🌐" },
+          { name: "Buddha Fruit (Hito)", icon: "🧘" },
+          { name: "Venom Fruit", icon: "🐍" },
+          { name: "Dragon Fruit (Uo)", icon: "🐉" },
+          { name: "Pika Fruit (Light)", icon: "💡" },
+          { name: "Magu Fruit (Magma)", icon: "🌋" },
+          { name: "Mera Fruit (Flame)", icon: "🔥" },
+          { name: "Goro Fruit (Rumble)", icon: "⚡" },
+          { name: "Ito Fruit (String)", icon: "🧵" },
+          { name: "Yami Fruit (Darkness)", icon: "🌑" },
+          { name: "Zushi Fruit (Gravity)", icon: "🪐" },
+          { name: "Hie Fruit (Ice)", icon: "❄️" }
+        ]
+      },
+      {
+        id: "prestige",
+        name: "🎒 กระเป๋า & แรร์ไอเทม (Prestige & Exclusives)",
+        items: [
+          { name: "Prestige Bag (Pbag)", icon: "🎒" },
+          { name: "All-Seeing Eye (ASE)", icon: "👁️" },
+          { name: "Dark Blade (Yoru)", icon: "🗡️" },
+          { name: "World Scroll", icon: "📜" },
+          { name: "Hoverboard", icon: "🛹" },
+          { name: "Kraken Armor Set", icon: "🛡️" },
+          { name: "Roger Hat", icon: "👒" },
+          { name: "Ba'al Cape", icon: "🧥" }
+        ]
+      },
+      {
+        id: "rerolls",
+        name: "🔄 รีสเตต & น้ำยา (Rerolls & Potions)",
+        items: [
+          { name: "SP Reroll", icon: "🔄" },
+          { name: "Race Reroll", icon: "🧬" },
+          { name: "Stat Reset Scroll", icon: "📜" },
+          { name: "Dark Root", icon: "🌱" },
+          { name: "Pure Evil Fruit", icon: "🍎" },
+          { name: "Stamina Potion", icon: "🧪" }
+        ]
+      },
+      {
+        id: "materials",
+        name: "🪙 วัตถุดิบ & การเงิน (Materials & Currency)",
+        items: [
+          { name: "Peli Pack (100k)", icon: "🪙" },
+          { name: "Kraken Core", icon: "🔮" },
+          { name: "Sea Beast Core", icon: "💎" },
+          { name: "Gunpowder", icon: "💥" },
+          { name: "Wood Planks", icon: "🪵" }
+        ]
+      }
     ];
 
+    // Flattened items for dropdowns & fuzzy parser
+    const ALL_GPO_ITEMS = GPO_CATEGORIES.flatMap(cat => cat.items);
+
+    // Initial Seed Accounts if fresh
     const SEED_ACCOUNTS = [
       {
         id: "acc_1",
         name: "ACC#01 (Farm_Mochi)",
         note: "User: GpoFarmer01 / Pass: Sec#99881",
-        updatedAt: Date.now() - 1000000,
+        updatedAt: Date.now() - 60000,
         items: [
           { id: "i1", name: "Mochi Fruit (Dough)", icon: "🍡", quantity: 1 },
           { id: "i2", name: "Prestige Bag (Pbag)", icon: "🎒", quantity: 2 },
-          { id: "i3", name: "SP Reroll", icon: "🔄", quantity: 15 }
+          { id: "i3", name: "SP Reroll", icon: "🔄", quantity: 15 },
+          { id: "i4", name: "Mythical Chest", icon: "📦", quantity: 0 }
         ]
       },
       {
         id: "acc_2",
         name: "ACC#02 (Chest_Vault)",
         note: "User: VaultMaster_02 / Pass: Chest$2026",
-        updatedAt: Date.now() - 3000000,
+        updatedAt: Date.now() - 120000,
         items: [
-          { id: "i4", name: "Mythical Chest", icon: "📦", quantity: 5 },
-          { id: "i5", name: "Legendary Chest", icon: "🎁", quantity: 12 },
-          { id: "i6", name: "Tori Fruit (Phoenix)", icon: "🦅", quantity: 2 }
-        ]
-      },
-      {
-        id: "acc_3",
-        name: "ACC#03 (Ope_Blade)",
-        note: "User: OpeUser_03 / Pass: Pass12345",
-        updatedAt: Date.now() - 5000000,
-        items: [
-          { id: "i7", name: "Ope Fruit (Op-Op)", icon: "🌐", quantity: 1 },
-          { id: "i8", name: "Dark Blade (Yoru)", icon: "🗡️", quantity: 1 }
+          { id: "i5", name: "Mythical Chest", icon: "📦", quantity: 5 },
+          { id: "i6", name: "Legendary Chest", icon: "🎁", quantity: 12 },
+          { id: "i7", name: "Tori Fruit (Phoenix)", icon: "🦅", quantity: 0 }
         ]
       }
     ];
 
-    // State Variables
+    // Global State
     let appState = {
       soundEnabled: true,
       compactView: false,
-      cloudPasscode: "KOJIRO-GPO-8888",
       accounts: [],
       history: []
     };
 
+    let activeBulkTargetAccountId = null;
+    let confirmCallback = null;
+
     /* ==========================================================================
-       2. SYNTHESIZED WEB AUDIO SFX
+       2. WEB AUDIO SYNTHESIZED SFX (NO URL DEPENDENCIES)
        ========================================================================== */
     let audioCtx = null;
 
@@ -671,7 +780,7 @@
           osc.type = 'sine';
           osc.frequency.setValueAtTime(600, now);
           osc.frequency.exponentialRampToValueAtTime(300, now + 0.05);
-          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.setValueAtTime(0.12, now);
           gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
           osc.start(now);
           osc.stop(now + 0.05);
@@ -679,23 +788,23 @@
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(440, now);
           osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
-          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.setValueAtTime(0.15, now);
           gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
           osc.start(now);
           osc.stop(now + 0.08);
         } else if (type === 'delete') {
           osc.type = 'sawtooth';
           osc.frequency.setValueAtTime(300, now);
-          osc.frequency.exponentialRampToValueAtTime(120, now + 0.1);
+          osc.frequency.exponentialRampToValueAtTime(100, now + 0.1);
           gain.gain.setValueAtTime(0.15, now);
           gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
           osc.start(now);
           osc.stop(now + 0.1);
         } else if (type === 'success') {
           osc.type = 'sine';
-          osc.frequency.setValueAtTime(523.25, now); // C5
-          osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
-          osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.08);
+          osc.frequency.setValueAtTime(783.99, now + 0.16);
           gain.gain.setValueAtTime(0.2, now);
           gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
           osc.start(now);
@@ -714,17 +823,14 @@
 
     function updateSoundUI() {
       const icon = document.getElementById("soundIcon");
-      if (appState.soundEnabled) {
-        icon.className = "fa-solid fa-volume-high text-emeraldNeon";
-      } else {
-        icon.className = "fa-solid fa-volume-xmark text-slate-500";
+      if (icon) {
+        icon.className = appState.soundEnabled ? "fa-solid fa-volume-high text-emeraldNeon" : "fa-solid fa-volume-xmark text-slate-500";
       }
     }
 
     /* ==========================================================================
-       3. DATA PERSISTENCE & AUTO-SAVE ENGINE
+       3. APPLICATION INITIALIZATION & STORAGE
        ========================================================================== */
-
     function initApp() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -739,20 +845,17 @@
       }
 
       updateSoundUI();
-      populatePresetDropdown();
+      populatePresetDropdowns();
+      buildBulkChecklistCategories();
 
       // Keyboard Shortcuts
       window.addEventListener("keydown", (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
-          e.preventDefault();
-          openSpotlightModal();
-        }
         if (e.key === "Escape") {
-          closeSpotlightModal();
           closeAccountModal();
           closeItemModal();
-          closeCloudModal();
-          closeQrModal();
+          closeBulkAddModal();
+          closeBatchDistributeModal();
+          closeConfirmModal(false);
           closeHistoryDrawer();
         }
       });
@@ -799,157 +902,431 @@
     }
 
     /* ==========================================================================
-       4. MULTI-DEVICE CLOUD SYNC ENGINE
+       4. QUANTITY CONTROLS & DIRECT INPUT (NEVER AUTO-DELETE AT ZERO)
        ========================================================================== */
 
-    function openCloudModal() {
-      document.getElementById("cloudPasscode").value = appState.cloudPasscode || "KOJIRO-GPO-8888";
-      document.getElementById("cloudStatus").classList.add("hidden");
-      const modal = document.getElementById("cloudModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      playSound('click');
-    }
+    // Decrement or increment item quantity. Stops at 0, NEVER removes row!
+    function adjustItemQuantity(accId, itemId, delta) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
+      const item = acc.items.find(i => i.id === itemId);
+      if (!item) return;
 
-    function closeCloudModal() {
-      document.getElementById("cloudModal").classList.add("hidden");
-      document.getElementById("cloudModal").classList.remove("flex");
-    }
+      recordHistory(`ปรับจำนวน ${item.name} (${delta > 0 ? '+' : ''}${delta})`, appState);
 
-    function generateRandomPasscode() {
-      const rand = "KOJIRO-" + Math.floor(1000 + Math.random() * 9000);
-      document.getElementById("cloudPasscode").value = rand;
-      playSound('click');
-    }
+      const oldQty = item.quantity || 0;
+      const newQty = Math.max(0, oldQty + delta);
+      item.quantity = newQty;
+      acc.updatedAt = Date.now();
 
-    async function uploadToCloud() {
-      const passcode = document.getElementById("cloudPasscode").value.trim();
-      if (!passcode) {
-        showToast("กรุณาระบุ Passcode สำหรับซิงก์", "warning");
-        return;
-      }
-      appState.cloudPasscode = passcode;
       saveState();
+      renderAccounts();
 
-      const statusEl = document.getElementById("cloudStatus");
-      statusEl.classList.remove("hidden");
-      statusEl.className = "p-3 rounded-2xl bg-cyan-500/10 border border-cyanNeon/30 text-xs text-cyanNeon text-center font-mono";
-      statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>กำลังส่งข้อมูลคลังขึ้น Cloud...`;
-
-      try {
-        // Simple hashed key cloud sync using free JSONBin / REST endpoint
-        const hashKey = btoa(passcode).replace(/=/g, '');
-        const res = await fetch(`https://api.restful-api.dev/objects`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: `KOJIRO_SYNC_${hashKey}`,
-            data: {
-              passcode: passcode,
-              accounts: appState.accounts,
-              updatedAt: Date.now()
-            }
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          // Store object ID in localStorage for updates
-          localStorage.setItem(`SYNC_OBJ_ID_${passcode}`, data.id);
-          statusEl.className = "p-3 rounded-2xl bg-emerald-500/10 border border-emeraldNeon/30 text-xs text-emeraldNeon text-center font-mono";
-          statusEl.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i>ส่งข้อมูลขึ้น Cloud สำเร็จแล้ว! ใช้รหัส ${passcode} ไปกดดึงข้อมูลบนมือถือได้เลย`;
-          playSound('success');
-        } else {
-          throw new Error('Upload failed');
-        }
-      } catch (e) {
-        statusEl.className = "p-3 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-400 text-center font-mono";
-        statusEl.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-2"></i>การเชื่อมต่อขัดข้อง กรุณาตรวจสอบอินเทอร์เน็ต`;
+      if (newQty === 0 && delta < 0) {
+        playSound('delete');
+        showToast(`${item.name} หมดสต็อกแล้ว (คงแถวไว้ที่ 0)`, "info");
+      } else {
+        playSound('click');
       }
     }
 
-    async function downloadFromCloud() {
-      const passcode = document.getElementById("cloudPasscode").value.trim();
-      if (!passcode) {
-        showToast("กรุณาระบุ Passcode สำหรับซิงก์", "warning");
-        return;
+    // Direct input on quantity box (typing numbers directly, e.g. 50)
+    function setItemQuantityDirect(accId, itemId, rawValue) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
+      const item = acc.items.find(i => i.id === itemId);
+      if (!item) return;
+
+      let parsed = parseInt(rawValue, 10);
+      if (isNaN(parsed) || parsed < 0) parsed = 0;
+
+      if (item.quantity !== parsed) {
+        recordHistory(`พิมพ์เปลี่ยนจำนวน ${item.name} เป็น ${parsed}`, appState);
+        item.quantity = parsed;
+        acc.updatedAt = Date.now();
+        saveState();
+        renderAccounts();
+        playSound('click');
       }
-      appState.cloudPasscode = passcode;
-      saveState();
+    }
 
-      const statusEl = document.getElementById("cloudStatus");
-      statusEl.classList.remove("hidden");
-      statusEl.className = "p-3 rounded-2xl bg-cyan-500/10 border border-cyanNeon/30 text-xs text-cyanNeon text-center font-mono";
-      statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>กำลังค้นหาข้อมูลคลังบน Cloud...`;
+    // Actually delete item row when user clicks the '✕' button
+    function promptDeleteItemRow(accId, itemId) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
+      const item = acc.items.find(i => i.id === itemId);
+      if (!item) return;
 
-      try {
-        const hashKey = btoa(passcode).replace(/=/g, '');
-        const objId = localStorage.getItem(`SYNC_OBJ_ID_${passcode}`);
-        
-        let fetchedData = null;
-
-        if (objId) {
-          const res = await fetch(`https://api.restful-api.dev/objects/${objId}`);
-          if (res.ok) {
-            const result = await res.json();
-            fetchedData = result.data;
-          }
-        }
-
-        if (!fetchedData) {
-          // Fallback search
-          const resAll = await fetch(`https://api.restful-api.dev/objects`);
-          if (resAll.ok) {
-            const list = await resAll.json();
-            const match = list.find(item => item.name === `KOJIRO_SYNC_${hashKey}`);
-            if (match && match.data) {
-              fetchedData = match.data;
-            }
-          }
-        }
-
-        if (fetchedData && fetchedData.accounts) {
-          recordHistory("ดึงข้อมูลจาก Cloud Sync", appState);
-          appState.accounts = fetchedData.accounts;
+      openConfirmModal(
+        "ลบรายการไอเทม",
+        `ต้องการลบ "${item.name}" ออกจากรหัส ${acc.name} อย่างถาวรหรือไม่?`,
+        () => {
+          recordHistory(`ลบรายการ ${item.name} ออกจาก ${acc.name}`, appState);
+          acc.items = acc.items.filter(i => i.id !== itemId);
+          acc.updatedAt = Date.now();
           saveState();
           renderAccounts();
-          renderLiveItemCounter();
-          statusEl.className = "p-3 rounded-2xl bg-emerald-500/10 border border-emeraldNeon/30 text-xs text-emeraldNeon text-center font-mono";
-          statusEl.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i>ดึงข้อมูลลงเครื่องสำเร็จ! อัปเดตคลังเรียบร้อยแล้ว`;
-          playSound('success');
-        } else {
-          statusEl.className = "p-3 rounded-2xl bg-amber-500/10 border border-amber-400/30 text-xs text-amber-300 text-center font-mono";
-          statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2"></i>ไม่พบข้อมูล Cloud สำหรับ Passcode นี้ (กรุณากดส่งขึ้น Cloud จากเครื่องหลักก่อน)`;
+          playSound('delete');
+          showToast(`ลบ "${item.name}" เรียบร้อยแล้ว`, "info");
         }
-      } catch (e) {
-        statusEl.className = "p-3 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-400 text-center font-mono";
-        statusEl.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-2"></i>ไม่สามารถดึงข้อมูลได้ กรุณาลองใหม่อีกครั้ง`;
-      }
+      );
     }
 
     /* ==========================================================================
-       5. MOBILE QR CODE GENERATOR
+       5. STANDARD GPO PRESET LOADER (LOAD ON-DEMAND)
        ========================================================================== */
+    function loadStandardTemplate(accId) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
 
-    function openQrModal() {
-      const currentUrl = encodeURIComponent(window.location.href);
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}`;
-      document.getElementById("qrImage").src = qrApiUrl;
-      const modal = document.getElementById("qrModal");
+      recordHistory(`ใส่เซ็ตของยอดนิยมเข้ารหัส ${acc.name}`, appState);
+
+      let addedCount = 0;
+      GPO_STANDARD_TEMPLATE.forEach(tpl => {
+        const exists = acc.items.some(i => i.name.toLowerCase() === tpl.name.toLowerCase());
+        if (!exists) {
+          acc.items.push({
+            id: "itm_" + Math.random().toString(36).substr(2, 9),
+            name: tpl.name,
+            icon: tpl.icon,
+            quantity: 0 // Set to 0 so user just types in real values!
+          });
+          addedCount++;
+        }
+      });
+
+      acc.updatedAt = Date.now();
+      saveState();
+      renderAccounts();
+      playSound('success');
+      showToast(`ใส่เซ็ตยอดนิยมเข้า ${acc.name} สำเร็จ (+${addedCount} รายการ)`, "success");
+    }
+
+    /* ==========================================================================
+       6. BULK MULTI-ITEM ADD MODAL (CHECKLIST + PASTE TEXT)
+       ========================================================================== */
+    function openBulkAddModal(accId) {
+      activeBulkTargetAccountId = accId;
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
+
+      document.getElementById("bulkAddTargetAccountText").textContent = `กำลังเพิ่มเข้ารหัส: ${acc.name}`;
+      
+      // Reset checklist inputs
+      document.querySelectorAll(".bulk-chk-item").forEach(chk => chk.checked = false);
+      document.querySelectorAll(".bulk-qty-item").forEach(input => input.value = "1");
+
+      // Reset paste inputs
+      document.getElementById("bulkPasteTextarea").value = "";
+      previewParsedPasteText();
+
+      switchBulkTab('checklist');
+
+      const modal = document.getElementById("bulkAddModal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
       playSound('click');
     }
 
-    function closeQrModal() {
-      document.getElementById("qrModal").classList.add("hidden");
-      document.getElementById("qrModal").classList.remove("flex");
+    function closeBulkAddModal() {
+      document.getElementById("bulkAddModal").classList.add("hidden");
+      document.getElementById("bulkAddModal").classList.remove("flex");
+    }
+
+    function switchBulkTab(tabName) {
+      const chkTab = document.getElementById("bulkChecklistTab");
+      const pasteTab = document.getElementById("bulkPasteTab");
+      const btnChk = document.getElementById("tabBtnChecklist");
+      const btnPaste = document.getElementById("tabBtnPaste");
+
+      if (tabName === 'checklist') {
+        chkTab.classList.remove("hidden");
+        pasteTab.classList.add("hidden");
+        pasteTab.classList.remove("flex");
+        btnChk.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-cyanNeon text-obsidian-950 shadow-glow-cyan";
+        btnPaste.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+      } else {
+        chkTab.classList.add("hidden");
+        pasteTab.classList.remove("hidden");
+        pasteTab.classList.add("flex");
+        btnPaste.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-cyanNeon text-obsidian-950 shadow-glow-cyan";
+        btnChk.className = "flex-1 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+      }
+      playSound('click');
+    }
+
+    function buildBulkChecklistCategories() {
+      const container = document.getElementById("bulkCategoriesContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      GPO_CATEGORIES.forEach(cat => {
+        const catBox = document.createElement("div");
+        catBox.className = "bg-obsidian-950/70 border border-white/5 rounded-2xl p-3";
+
+        catBox.innerHTML = `
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/5">
+            <span class="text-xs font-bold text-slate-200">${cat.name}</span>
+            <div class="flex items-center gap-2 text-[10px]">
+              <button type="button" onclick="toggleCategoryCheck('${cat.id}', true)" class="text-cyanNeon hover:underline">เลือกทั้งหมด</button>
+              <span>•</span>
+              <button type="button" onclick="toggleCategoryCheck('${cat.id}', false)" class="text-slate-400 hover:underline">ยกเลิก</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${cat.items.map((item, idx) => `
+              <div class="flex items-center justify-between gap-2 p-1.5 rounded-xl bg-obsidian-900/60 border border-white/5 hover:border-cyanNeon/30 transition-all">
+                <label class="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
+                  <input type="checkbox" data-cat="${cat.id}" data-name="${escapeHtml(item.name)}" data-icon="${item.icon}" class="bulk-chk-item rounded text-cyanNeon focus:ring-0 cursor-pointer w-4 h-4 bg-obsidian-950 border-white/20">
+                  <span class="text-sm shrink-0">${item.icon}</span>
+                  <span class="text-xs text-slate-200 truncate select-none">${escapeHtml(item.name)}</span>
+                </label>
+                <div class="flex items-center gap-1 shrink-0">
+                  <span class="text-[10px] text-slate-500 font-mono">จำนวน:</span>
+                  <input type="number" min="0" value="1" data-target-name="${escapeHtml(item.name)}" class="bulk-qty-item w-12 glass-input px-1.5 py-0.5 rounded-lg text-xs font-mono font-bold text-center text-cyanNeon">
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        container.appendChild(catBox);
+      });
+    }
+
+    function toggleCategoryCheck(catId, checkState) {
+      document.querySelectorAll(`input.bulk-chk-item[data-cat="${catId}"]`).forEach(cb => {
+        cb.checked = checkState;
+      });
+      playSound('click');
+    }
+
+    function bulkChecklistSelectAll(checkState) {
+      document.querySelectorAll("input.bulk-chk-item").forEach(cb => {
+        cb.checked = checkState;
+      });
+      playSound('click');
+    }
+
+    // Text parser for Tab B
+    function parsePastedItems(text) {
+      const lines = text.split("\n");
+      const results = [];
+
+      lines.forEach(rawLine => {
+        const line = rawLine.trim();
+        if (!line) return;
+
+        // Matches formats like: "Mythical Chest 5", "Mythical Chest x5", "Mythical Chest : 5", "5x Mythical Chest"
+        let name = "";
+        let qty = 1;
+
+        // Pattern 1: Leading quantity like "5x Mythical Chest"
+        const leadingMatch = line.match(/^(\d+)\s*[xX:]?\s+(.+)$/);
+        // Pattern 2: Trailing quantity like "Mythical Chest 5", "Mythical Chest x5"
+        const trailingMatch = line.match(/^(.+?)\s*[:xX-]?\s+(\d+)$/);
+
+        if (leadingMatch) {
+          qty = parseInt(leadingMatch[1], 10);
+          name = leadingMatch[2].trim();
+        } else if (trailingMatch) {
+          name = trailingMatch[1].trim();
+          qty = parseInt(trailingMatch[2], 10);
+        } else {
+          name = line;
+          qty = 1;
+        }
+
+        // Clean out quotation marks or symbols
+        name = name.replace(/^[-•*]\s*/, '').trim();
+
+        // Match known icon
+        const matchedPreset = ALL_GPO_ITEMS.find(p => p.name.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(p.name.toLowerCase()));
+        const icon = matchedPreset ? matchedPreset.icon : "📦";
+        const displayName = matchedPreset ? matchedPreset.name : name;
+
+        results.push({ name: displayName, icon: icon, quantity: isNaN(qty) ? 1 : qty });
+      });
+
+      return results;
+    }
+
+    function previewParsedPasteText() {
+      const text = document.getElementById("bulkPasteTextarea").value;
+      const previewContainer = document.getElementById("parsedItemsPreview");
+      const countBadge = document.getElementById("parsedItemsCount");
+      const parsed = parsePastedItems(text);
+
+      countBadge.textContent = `${parsed.length} รายการ`;
+
+      if (parsed.length === 0) {
+        previewContainer.innerHTML = `<span class="text-slate-500 italic">ยังไม่มีข้อความ...</span>`;
+        return;
+      }
+
+      previewContainer.innerHTML = parsed.map(item => `
+        <div class="flex items-center justify-between py-0.5 border-b border-white/5">
+          <span>${item.icon} ${escapeHtml(item.name)}</span>
+          <span class="text-cyanNeon font-bold">x${item.quantity}</span>
+        </div>
+      `).join('');
+    }
+
+    function submitBulkAdd() {
+      const acc = appState.accounts.find(a => a.id === activeBulkTargetAccountId);
+      if (!acc) return;
+
+      const itemsToAdd = [];
+
+      // Check which tab is active
+      const isPasteTab = !document.getElementById("bulkPasteTab").classList.contains("hidden");
+
+      if (isPasteTab) {
+        const text = document.getElementById("bulkPasteTextarea").value;
+        const parsed = parsePastedItems(text);
+        if (parsed.length === 0) {
+          showToast("ไม่พบรายการข้อความที่สามารถนำเข้าได้", "warning");
+          return;
+        }
+        itemsToAdd.push(...parsed);
+      } else {
+        // From Checklist
+        document.querySelectorAll("input.bulk-chk-item:checked").forEach(cb => {
+          const name = cb.dataset.name;
+          const icon = cb.dataset.icon;
+          const qtyInput = document.querySelector(`input.bulk-qty-item[data-target-name="${name}"]`);
+          const qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
+          itemsToAdd.push({ name, icon, quantity: qty });
+        });
+
+        if (itemsToAdd.length === 0) {
+          showToast("กรุณาติ๊กเลือกไอเทมอย่างน้อย 1 รายการ", "warning");
+          return;
+        }
+      }
+
+      recordHistory(`เพิ่มหลายไอเทม (${itemsToAdd.length} รายการ) เข้ารหัส ${acc.name}`, appState);
+
+      itemsToAdd.forEach(newItem => {
+        const existing = acc.items.find(i => i.name.toLowerCase() === newItem.name.toLowerCase());
+        if (existing) {
+          existing.quantity += newItem.quantity;
+        } else {
+          acc.items.push({
+            id: "itm_" + Math.random().toString(36).substr(2, 9),
+            name: newItem.name,
+            icon: newItem.icon,
+            quantity: newItem.quantity
+          });
+        }
+      });
+
+      acc.updatedAt = Date.now();
+      saveState();
+      renderAccounts();
+      closeBulkAddModal();
+      playSound('success');
+      showToast(`เพิ่ม ${itemsToAdd.length} รายการเข้ารหัส ${acc.name} เรียบร้อยแล้ว!`, "success");
     }
 
     /* ==========================================================================
-       6. ACCOUNTS CARDS & ULTRA-COMPACT RENDERER
+       7. BATCH DISTRIBUTION ACROSS MULTIPLE ACCOUNTS
        ========================================================================== */
+    function openBatchDistributeModal() {
+      if (appState.accounts.length === 0) {
+        showToast("ยังไม่มีรหัสในคลัง กรุณาเพิ่มรหัสก่อน", "warning");
+        return;
+      }
 
+      // Populate Accounts Checklist
+      const listEl = document.getElementById("batchAccountsList");
+      listEl.innerHTML = appState.accounts.map(acc => `
+        <label class="flex items-center gap-2 p-2 rounded-xl bg-obsidian-900 border border-white/5 hover:border-violetNeon/40 cursor-pointer">
+          <input type="checkbox" value="${acc.id}" class="batch-acc-cb rounded text-violetNeon focus:ring-0 cursor-pointer">
+          <div class="truncate">
+            <span class="text-xs font-semibold text-white">${escapeHtml(acc.name)}</span>
+            <span class="text-[10px] text-slate-400 block">${acc.items.length} รายการ</span>
+          </div>
+        </label>
+      `).join('');
+
+      // Populate presets
+      const presetSelect = document.getElementById("batchItemPreset");
+      presetSelect.innerHTML = `<option value="">-- เลือกไอเทมสำเร็จรูป --</option>` + 
+        ALL_GPO_ITEMS.map(i => `<option value="${escapeHtml(i.name)}">${i.icon} ${i.name}</option>`).join('');
+
+      document.getElementById("batchCustomItemName").value = "Mythical Chest";
+      document.getElementById("batchItemQuantity").value = "1";
+
+      const modal = document.getElementById("batchDistributeModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      playSound('click');
+    }
+
+    function closeBatchDistributeModal() {
+      document.getElementById("batchDistributeModal").classList.add("hidden");
+      document.getElementById("batchDistributeModal").classList.remove("flex");
+    }
+
+    function toggleSelectAllBatchAccounts(selectState) {
+      document.querySelectorAll(".batch-acc-cb").forEach(cb => cb.checked = selectState);
+      playSound('click');
+    }
+
+    function submitBatchDistribute() {
+      const selectedAccountIds = Array.from(document.querySelectorAll(".batch-acc-cb:checked")).map(cb => cb.value);
+      if (selectedAccountIds.length === 0) {
+        showToast("กรุณาเลือกรหัสปลายทางอย่างน้อย 1 รหัส", "warning");
+        return;
+      }
+
+      const itemName = document.getElementById("batchCustomItemName").value.trim();
+      if (!itemName) {
+        showToast("กรุณาระบุชื่อไอเทมที่ต้องการกระจาย", "warning");
+        return;
+      }
+
+      const qty = parseInt(document.getElementById("batchItemQuantity").value, 10) || 0;
+      const mode = document.getElementById("batchAddMode").value; // 'ADD' or 'SET'
+
+      const matchedPreset = ALL_GPO_ITEMS.find(p => p.name.toLowerCase() === itemName.toLowerCase());
+      const icon = matchedPreset ? matchedPreset.icon : "📦";
+
+      recordHistory(`กระจาย ${itemName} (${mode === 'ADD' ? '+' : '='}${qty}) เข้า ${selectedAccountIds.length} รหัส`, appState);
+
+      selectedAccountIds.forEach(accId => {
+        const acc = appState.accounts.find(a => a.id === accId);
+        if (acc) {
+          const existing = acc.items.find(i => i.name.toLowerCase() === itemName.toLowerCase());
+          if (existing) {
+            if (mode === 'ADD') {
+              existing.quantity += qty;
+            } else {
+              existing.quantity = qty;
+            }
+          } else {
+            acc.items.push({
+              id: "itm_" + Math.random().toString(36).substr(2, 9),
+              name: itemName,
+              icon: icon,
+              quantity: qty
+            });
+          }
+          acc.updatedAt = Date.now();
+        }
+      });
+
+      saveState();
+      renderAccounts();
+      closeBatchDistributeModal();
+      playSound('success');
+      showToast(`กระจาย ${itemName} เข้าสู่ ${selectedAccountIds.length} รหัสเรียบร้อยแล้ว!`, "success");
+    }
+
+    /* ==========================================================================
+       8. ACCOUNTS RENDERING & CARDS UI
+       ========================================================================== */
     function toggleViewMode() {
       appState.compactView = !appState.compactView;
       saveState();
@@ -992,8 +1369,8 @@
         if (sortBy === "NEWEST") return (b.updatedAt || 0) - (a.updatedAt || 0);
         if (sortBy === "NAME_ASC") return a.name.localeCompare(b.name);
         if (sortBy === "ITEMS_DESC") {
-          const sumA = a.items.reduce((s, i) => s + i.quantity, 0);
-          const sumB = b.items.reduce((s, i) => s + i.quantity, 0);
+          const sumA = a.items.reduce((s, i) => s + (i.quantity > 0 ? i.quantity : 0), 0);
+          const sumB = b.items.reduce((s, i) => s + (i.quantity > 0 ? i.quantity : 0), 0);
           return sumB - sumA;
         }
         return 0;
@@ -1024,7 +1401,8 @@
       card.className = "glass-card rounded-3xl p-4 flex flex-col justify-between overflow-visible relative";
       card.id = `account-card-${acc.id}`;
 
-      const totalQty = acc.items.reduce((s, i) => s + i.quantity, 0);
+      // Calculate total available items (excluding 0 count items)
+      const availableQty = acc.items.reduce((s, i) => s + (i.quantity > 0 ? i.quantity : 0), 0);
 
       card.innerHTML = `
         <div>
@@ -1035,29 +1413,34 @@
                 <i class="fa-solid fa-folder-closed text-cyanNeon text-xs"></i>
                 ${escapeHtml(acc.name)}
               </h3>
-              <p class="text-[11px] text-slate-400 mt-0.5">${totalQty} ชิ้น • อัปเดต ${formatTimeAgo(acc.updatedAt)}</p>
+              <p class="text-[11px] text-slate-400 mt-0.5">
+                <span class="text-emeraldNeon font-bold font-mono">${availableQty}</span> ชิ้นพร้อมขาย • อัปเดต ${formatTimeAgo(acc.updatedAt)}
+              </p>
             </div>
 
-            <!-- Fixed 3-Dots Click Dropdown -->
+            <!-- 3-Dots Click Dropdown -->
             <div class="relative inline-block">
               <button onclick="toggleAccountMenu(event, '${acc.id}')" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer">
                 <i class="fa-solid fa-ellipsis-vertical text-xs"></i>
               </button>
-              <div id="acc-menu-${acc.id}" class="absolute right-0 top-9 w-44 glass-panel rounded-2xl shadow-2xl py-1 hidden z-50 border border-white/10">
-                <button onclick="copyCustomerSnippet('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3 py-2 text-xs text-cyanNeon hover:bg-cyan-500/20 flex items-center gap-2">
+              <div id="acc-menu-${acc.id}" class="absolute right-0 top-9 w-48 glass-panel rounded-2xl shadow-2xl py-1 hidden z-50 border border-white/10 bg-obsidian-950/95">
+                <button onclick="copyCustomerSnippet('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3.5 py-2 text-xs text-cyanNeon hover:bg-cyan-500/20 flex items-center gap-2">
                   <i class="fa-solid fa-copy"></i> สรุปส่งลูกค้า
                 </button>
-                <button onclick="openAccountModal('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-cyan-500/20 flex items-center gap-2">
+                <button onclick="loadStandardTemplate('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3.5 py-2 text-xs text-goldNeon hover:bg-goldNeon/20 flex items-center gap-2">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> ใส่เซ็ตยอดนิยม (0 ชิ้น)
+                </button>
+                <button onclick="openAccountModal('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3.5 py-2 text-xs text-slate-300 hover:bg-white/10 flex items-center gap-2">
                   <i class="fa-solid fa-pen-to-square"></i> แก้ไขรหัส
                 </button>
-                <button onclick="deleteAccount('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3 py-2 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2 border-t border-white/5">
+                <button onclick="promptDeleteAccount('${acc.id}'); closeAllDropdowns();" class="w-full text-left px-3.5 py-2 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2 border-t border-white/5">
                   <i class="fa-solid fa-trash"></i> ลบรหัสนี้
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Private Credentials Section -->
+          <!-- Credentials / Notes -->
           <div class="mb-3 bg-obsidian-950/80 border border-white/5 rounded-2xl p-2.5">
             <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
               <span><i class="fa-solid fa-key text-goldNeon mr-1"></i> รหัสลับ / Note:</span>
@@ -1075,28 +1458,27 @@
             </div>
           </div>
 
-          <!-- Fast-Add Shortcut Icon Bar -->
-          <div class="mb-3">
-            <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider block mb-1">ทางลัดเพิ่มของเร็ว (+1 คลิก):</span>
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-              ${FAST_ADD_SHORTCUTS.map(sc => `
-                <button onclick="quickAddShortcut('${acc.id}', '${escapeJsString(sc.name)}', '${sc.icon}')" title="+1 ${sc.name}" class="h-7 px-2 rounded-xl bg-obsidian-950 border border-white/10 hover:border-cyanNeon/50 hover:bg-cyan-500/10 text-xs flex items-center gap-1 transition-all shrink-0">
-                  <span>${sc.icon}</span>
-                  <span class="text-[10px] text-slate-300 font-medium hidden sm:inline">${sc.name.split(' ')[0]}</span>
-                </button>
-              `).join('')}
-            </div>
+          <!-- Quick Actions & Preset Buttons -->
+          <div class="flex items-center gap-2 mb-3">
+            <button onclick="loadStandardTemplate('${acc.id}')" title="โหลดเซ็ตไอเทมเริ่มต้น 14 ชิ้น (0 ชิ้น) เพื่อให้พิมพ์ใส่เลขเร็วๆ" class="flex-1 py-1 px-2 rounded-xl bg-goldNeon/10 hover:bg-goldNeon/20 border border-goldNeon/30 text-goldNeon text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-sparkles text-[10px]"></i>
+              <span>+ เซ็ตของยอดฮิต (0 ชิ้น)</span>
+            </button>
+            <button onclick="openBulkAddModal('${acc.id}')" title="เพิ่มหลายไอเทมพร้อมกัน" class="flex-1 py-1 px-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyanNeon/30 text-cyanNeon text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 shadow-glow-cyan">
+              <i class="fa-solid fa-layer-group text-[10px]"></i>
+              <span>+ เพิ่มหลายอย่าง (Bulk)</span>
+            </button>
           </div>
 
-          <!-- Items List -->
+          <!-- Items List Container -->
           <div class="space-y-1.5 mb-3">
             <div class="flex items-center justify-between text-[11px] text-slate-400 font-semibold uppercase tracking-wider pb-1 border-b border-white/5">
               <span>รายการไอเทม (${acc.items.length})</span>
-              <span>ปรับจำนวน</span>
+              <span>จำนวน (พิมพ์เลขได้)</span>
             </div>
 
             ${acc.items.length === 0 ? `
-              <p class="text-xs text-slate-500 italic py-2 text-center">ไม่มีไอเทมในรหัสนี้ (รหัสว่าง)</p>
+              <p class="text-xs text-slate-500 italic py-2 text-center">ไม่มีไอเทมในรหัสนี้ (กดปุ่มด้านล่างเพื่อเพิ่ม)</p>
             ` : acc.items.map(item => createItemRowHtml(acc.id, item)).join('')}
           </div>
         </div>
@@ -1110,7 +1492,7 @@
           
           <button onclick="openItemModal('${acc.id}', '${escapeJsString(acc.name)}')" class="px-3 py-1.5 rounded-xl bg-cyanNeon/10 hover:bg-cyanNeon/20 text-cyanNeon text-xs font-semibold border border-cyanNeon/30 transition-all flex items-center gap-1.5">
             <i class="fa-solid fa-plus text-[10px]"></i>
-            <span>เพิ่มไอเทม</span>
+            <span>+ เพิ่มไอเทม</span>
           </button>
         </div>
       `;
@@ -1123,28 +1505,31 @@
       row.className = "glass-card rounded-2xl p-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-3";
       row.id = `account-card-${acc.id}`;
 
-      const totalQty = acc.items.reduce((s, i) => s + i.quantity, 0);
-      const itemsSummary = acc.items.map(i => `${i.icon} ${i.name.split(' ')[0]} x${i.quantity}`).join(', ');
+      const totalQty = acc.items.reduce((s, i) => s + (i.quantity > 0 ? i.quantity : 0), 0);
+      const itemsSummary = acc.items
+        .filter(i => i.quantity > 0)
+        .map(i => `${i.icon} ${i.name.split(' ')[0]} x${i.quantity}`)
+        .join(', ');
 
       row.innerHTML = `
         <div class="flex items-center gap-3 min-w-[200px]">
           <i class="fa-solid fa-folder-closed text-cyanNeon text-sm"></i>
           <div>
             <h4 class="font-bold text-sm text-white">${escapeHtml(acc.name)}</h4>
-            <span class="text-[11px] text-slate-400">${totalQty} ชิ้น</span>
+            <span class="text-[11px] text-slate-400 font-mono">${totalQty} ชิ้นพร้อมขาย</span>
           </div>
         </div>
 
         <div class="flex-1 text-xs text-slate-300 font-mono truncate px-2">
-          ${itemsSummary || '<span class="text-slate-500 italic">รหัสว่าง</span>'}
+          ${itemsSummary || '<span class="text-slate-500 italic">ไม่มีสต็อกพร้อมขาย</span>'}
         </div>
 
         <div class="flex items-center gap-2 shrink-0">
-          <button onclick="copyCustomerSnippet('${acc.id}')" class="px-2.5 py-1 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-cyanNeon text-xs font-semibold border border-white/10">
-            <i class="fa-solid fa-copy mr-1"></i> ส่งลูกค้า
+          <button onclick="openBulkAddModal('${acc.id}')" class="px-2.5 py-1 rounded-xl bg-cyan-500/10 text-cyanNeon text-xs font-semibold border border-cyanNeon/30">
+            + Bulk Add
           </button>
-          <button onclick="openItemModal('${acc.id}', '${escapeJsString(acc.name)}')" class="px-2.5 py-1 rounded-xl bg-cyanNeon/10 text-cyanNeon text-xs font-semibold border border-cyanNeon/30">
-            + ไอเทม
+          <button onclick="copyCustomerSnippet('${acc.id}')" class="px-2.5 py-1 rounded-xl bg-white/5 hover:bg-cyan-500/20 text-slate-300 hover:text-cyanNeon text-xs font-semibold border border-white/10">
+            <i class="fa-solid fa-copy mr-1"></i> ส่งลูกค้า
           </button>
           <button onclick="openAccountModal('${acc.id}')" class="w-7 h-7 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 flex items-center justify-center">
             <i class="fa-solid fa-pen-to-square text-xs"></i>
@@ -1155,23 +1540,43 @@
       return row;
     }
 
+    // Item row with decrement to 0 fix & direct input
     function createItemRowHtml(accId, item) {
+      const isZero = (item.quantity === 0 || item.quantity === "0");
+      const textStyle = isZero ? "text-slate-500 line-through opacity-75" : "text-slate-200 font-semibold";
+      const badgeZero = isZero ? `<span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-rose-500/15 text-rose-400 border border-rose-500/30 ml-1">ของหมด</span>` : '';
+
       return `
-        <div class="flex items-center justify-between gap-2 p-2 rounded-xl bg-obsidian-950/70 border border-white/5">
+        <div class="flex items-center justify-between gap-2 p-2 rounded-xl ${isZero ? 'bg-obsidian-950/40 border border-white/5' : 'bg-obsidian-950/70 border border-white/5'}">
           <div class="flex items-center gap-2 min-w-0">
-            <span class="text-base">${item.icon || '📦'}</span>
-            <span class="text-xs font-semibold text-slate-200 truncate">${escapeHtml(item.name)}</span>
+            <span class="text-base ${isZero ? 'opacity-40 grayscale' : ''}">${item.icon || '📦'}</span>
+            <span class="text-xs ${textStyle} truncate">${escapeHtml(item.name)}</span>
+            ${badgeZero}
           </div>
 
-          <div class="flex items-center gap-1 bg-obsidian-900 border border-white/10 rounded-lg p-0.5">
-            <button onclick="adjustItemQuantity('${accId}', '${item.id}', -1)" class="w-5 h-5 rounded bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 flex items-center justify-center text-[10px]">
+          <div class="flex items-center gap-1 bg-obsidian-900 border border-white/10 rounded-xl p-0.5 shrink-0">
+            <!-- Minus Button: stops at 0, never deletes row -->
+            <button onclick="adjustItemQuantity('${accId}', '${item.id}', -1)" title="ลดจำนวน (คงแถวไว้ที่ 0)" class="w-6 h-6 rounded-lg bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 flex items-center justify-center text-xs transition-colors">
               <i class="fa-solid fa-minus"></i>
             </button>
-            <span class="w-6 text-center font-mono text-xs font-bold text-cyanNeon">${item.quantity}</span>
-            <button onclick="adjustItemQuantity('${accId}', '${item.id}', 1)" class="w-5 h-5 rounded bg-white/5 hover:bg-emeraldNeon/20 text-slate-400 hover:text-emeraldNeon flex items-center justify-center text-[10px]">
+
+            <!-- Direct Number Input: Click & Type 50 directly -->
+            <input 
+              type="number" 
+              min="0" 
+              value="${item.quantity}" 
+              onfocus="this.select()"
+              onchange="setItemQuantityDirect('${accId}', '${item.id}', this.value)"
+              title="คลิกเพื่อพิมพ์ตัวเลขจำนวนตรงๆ"
+              class="qty-inline-input w-11 h-6 bg-obsidian-950 border border-white/10 rounded-md text-center font-mono text-xs font-bold ${isZero ? 'text-slate-500' : 'text-cyanNeon'} focus:border-cyanNeon focus:outline-none">
+
+            <!-- Plus Button -->
+            <button onclick="adjustItemQuantity('${accId}', '${item.id}', 1)" title="เพิ่มจำนวน (+1)" class="w-6 h-6 rounded-lg bg-white/5 hover:bg-emeraldNeon/20 text-slate-400 hover:text-emeraldNeon flex items-center justify-center text-xs transition-colors">
               <i class="fa-solid fa-plus"></i>
             </button>
-            <button onclick="deleteItemRow('${accId}', '${item.id}')" class="w-5 h-5 rounded hover:bg-rose-500/20 text-slate-500 hover:text-rose-400 flex items-center justify-center text-[10px] ml-0.5">
+
+            <!-- Explicit Delete Button '✕' -->
+            <button onclick="promptDeleteItemRow('${accId}', '${item.id}')" title="ลบไอเทมนี้ออกจากรหัสถาวร" class="w-6 h-6 rounded-lg hover:bg-rose-500/20 text-slate-500 hover:text-rose-400 flex items-center justify-center text-xs ml-0.5 transition-colors">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
@@ -1193,101 +1598,23 @@
     }
 
     /* ==========================================================================
-       7. ITEM ADJUSTMENTS & SHORTCUTS
+       9. LIVE GLOBAL ITEM COUNTER BAR (AVAILABLE STOCK)
        ========================================================================== */
-
-    function quickAddShortcut(accId, itemName, itemIcon) {
-      recordHistory(`เพิ่มทางลัด +1 ${itemName}`, appState);
-      const acc = appState.accounts.find(a => a.id === accId);
-      if (acc) {
-        const existing = acc.items.find(i => i.name.toLowerCase() === itemName.toLowerCase());
-        if (existing) {
-          existing.quantity += 1;
-        } else {
-          acc.items.push({ id: "itm_" + Date.now(), name: itemName, icon: itemIcon, quantity: 1 });
-        }
-        acc.updatedAt = Date.now();
-        saveState();
-        renderAccounts();
-        playSound('add');
-        showToast(`เพิ่ม ${itemName} (+1) สำเร็จ!`, "success");
-      }
-    }
-
-    function adjustItemQuantity(accId, itemId, delta) {
-      recordHistory(`ปรับจำนวนไอเทม (${delta > 0 ? '+' : ''}${delta})`, appState);
-      const acc = appState.accounts.find(a => a.id === accId);
-      if (acc) {
-        const item = acc.items.find(i => i.id === itemId);
-        if (item) {
-          item.quantity += delta;
-          if (item.quantity <= 0) {
-            acc.items = acc.items.filter(i => i.id !== itemId);
-            playSound('delete');
-          } else {
-            playSound('click');
-          }
-          acc.updatedAt = Date.now();
-          saveState();
-          renderAccounts();
-        }
-      }
-    }
-
-    function deleteItemRow(accId, itemId) {
-      recordHistory(`ลบไอเทมออกจากรหัส`, appState);
-      const acc = appState.accounts.find(a => a.id === accId);
-      if (acc) {
-        acc.items = acc.items.filter(i => i.id !== itemId);
-        acc.updatedAt = Date.now();
-        saveState();
-        renderAccounts();
-        playSound('delete');
-        showToast("ลบไอเทมเรียบร้อย", "info");
-      }
-    }
-
-    /* ==========================================================================
-       8. ONE-CLICK CUSTOMER CHAT SNIPPET GENERATOR
-       ========================================================================== */
-
-    function copyCustomerSnippet(accId) {
-      const acc = appState.accounts.find(a => a.id === accId);
-      if (!acc) return;
-
-      if (acc.items.length === 0) {
-        showToast("รหัสนี้ไม่มีไอเทมที่จะส่งให้ลูกค้า", "warning");
-        return;
-      }
-
-      let text = `📦 [KojiroStock GPO] ${acc.name}\n`;
-      text += `------------------------------\n`;
-      acc.items.forEach(itm => {
-        text += `• ${itm.icon || '📦'} ${itm.name} x${itm.quantity}\n`;
-      });
-      text += `------------------------------\n`;
-      text += `พร้อมส่งมอบทันที!`;
-
-      copyToClipboard(text);
-      playSound('success');
-    }
-
-    /* ==========================================================================
-       9. GLOBAL LIVE ITEM COUNTER BAR
-       ========================================================================== */
-
     function renderLiveItemCounter() {
       const container = document.getElementById("liveGlobalCounter");
+      if (!container) return;
       container.innerHTML = "";
 
       const itemTotals = {};
 
       appState.accounts.forEach(acc => {
         acc.items.forEach(itm => {
-          if (!itemTotals[itm.name]) {
-            itemTotals[itm.name] = { icon: itm.icon || '📦', total: 0 };
+          if (itm.quantity > 0) {
+            if (!itemTotals[itm.name]) {
+              itemTotals[itm.name] = { icon: itm.icon || '📦', total: 0 };
+            }
+            itemTotals[itm.name].total += itm.quantity;
           }
-          itemTotals[itm.name].total += itm.quantity;
         });
       });
 
@@ -1298,7 +1625,7 @@
       })).sort((a, b) => b.total - a.total);
 
       if (itemsArr.length === 0) {
-        container.innerHTML = `<span class="text-xs text-slate-500 italic">ไม่มีสต็อกสินค้าในคลัง</span>`;
+        container.innerHTML = `<span class="text-xs text-slate-500 italic">ไม่มีสต็อกสินค้าพร้อมขาย (ทุกรายการเป็น 0 หรือว่าง)</span>`;
         return;
       }
 
@@ -1315,95 +1642,35 @@
     }
 
     /* ==========================================================================
-       10. SPOTLIGHT GLOBAL SEARCH MODAL
+       10. CUSTOMER SNIPPET GENERATOR
        ========================================================================== */
+    function copyCustomerSnippet(accId) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
 
-    function openSpotlightModal() {
-      const modal = document.getElementById("spotlightModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      const input = document.getElementById("spotlightInput");
-      input.value = "";
-      input.focus();
-      executeSpotlightSearch();
-      playSound('click');
-    }
+      // Filter out 0 items when sending to customer
+      const inStock = acc.items.filter(i => i.quantity > 0);
 
-    function closeSpotlightModal() {
-      document.getElementById("spotlightModal").classList.add("hidden");
-      document.getElementById("spotlightModal").classList.remove("flex");
-    }
-
-    function executeSpotlightSearch() {
-      const query = document.getElementById("spotlightInput").value.toLowerCase().trim();
-      const container = document.getElementById("spotlightResults");
-      container.innerHTML = "";
-
-      if (!query) {
-        container.innerHTML = `
-          <div class="text-center py-8 text-slate-500 text-xs">
-            <i class="fa-solid fa-bolt text-goldNeon text-xl mb-2 block animate-bounce"></i>
-            พิมพ์คำค้นหา เช่น <span class="text-cyanNeon cursor-pointer hover:underline" onclick="document.getElementById('spotlightInput').value='Pbag';executeSpotlightSearch();">Pbag</span>, 
-            <span class="text-cyanNeon cursor-pointer hover:underline" onclick="document.getElementById('spotlightInput').value='Mochi';executeSpotlightSearch();">Mochi</span>, 
-            <span class="text-cyanNeon cursor-pointer hover:underline" onclick="document.getElementById('spotlightInput').value='Chest';executeSpotlightSearch();">Chest</span>
-          </div>
-        `;
+      if (inStock.length === 0) {
+        showToast("รหัสนี้ไม่มีไอเทมพร้อมขาย (สต็อกเป็น 0 ทั้งหมด)", "warning");
         return;
       }
 
-      const matchedAccounts = appState.accounts.filter(acc => {
-        const nameMatch = acc.name.toLowerCase().includes(query);
-        const itemMatch = acc.items.some(i => i.name.toLowerCase().includes(query));
-        return nameMatch || itemMatch;
+      let text = `📦 [KojiroStock GPO] ${acc.name}\n`;
+      text += `------------------------------\n`;
+      inStock.forEach(itm => {
+        text += `• ${itm.icon || '📦'} ${itm.name} x${itm.quantity}\n`;
       });
+      text += `------------------------------\n`;
+      text += `พร้อมส่งมอบทันที!`;
 
-      if (matchedAccounts.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-8 text-slate-500 text-sm">
-            <i class="fa-solid fa-circle-xmark text-rose-400 text-xl mb-2 block"></i>
-            ไม่พบข้อมูลตรงกับ "${escapeHtml(query)}"
-          </div>
-        `;
-        return;
-      }
-
-      matchedAccounts.forEach(acc => {
-        const resCard = document.createElement("div");
-        resCard.className = "glass-panel p-3.5 rounded-2xl border border-white/10 hover:border-cyanNeon/50 cursor-pointer transition-all flex items-center justify-between gap-3";
-        resCard.onclick = () => scrollToAccount(acc.id);
-
-        const itemsString = acc.items.map(i => `${i.icon} ${i.name} (x${i.quantity})`).join(', ');
-
-        resCard.innerHTML = `
-          <div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-folder-closed text-cyanNeon text-xs"></i>
-              <h4 class="font-bold text-sm text-white">${escapeHtml(acc.name)}</h4>
-            </div>
-            <p class="text-xs text-slate-300 font-mono mt-1">${itemsString || 'ไม่มีไอเทม'}</p>
-          </div>
-          <i class="fa-solid fa-chevron-right text-slate-500 text-xs"></i>
-        `;
-
-        container.appendChild(resCard);
-      });
-    }
-
-    function scrollToAccount(accId) {
-      closeSpotlightModal();
-      const el = document.getElementById(`account-card-${accId}`);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.add("animate-highlight-card");
-        setTimeout(() => el.classList.remove("animate-highlight-card"), 2000);
-        playSound('success');
-      }
+      copyToClipboard(text);
+      playSound('success');
     }
 
     /* ==========================================================================
-       11. MODALS, FORMS, DROPDOWNS & HISTORY DRAWER LOGIC
+       11. MODALS, DROPDOWNS & CUSTOM CONFIRM SYSTEM (NO ALERT/CONFIRM)
        ========================================================================== */
-
     function toggleAccountMenu(event, accId) {
       if (event) event.stopPropagation();
       const targetMenu = document.getElementById(`acc-menu-${accId}`);
@@ -1432,11 +1699,69 @@
       if (backupMenu) backupMenu.classList.add("hidden");
     }
 
-    // Close all popups when clicking anywhere outside
     window.addEventListener("click", function() {
       closeAllDropdowns();
     });
 
+    // Custom Obsidian Confirmation Modal (Zero Native Confirms)
+    function openConfirmModal(title, message, onConfirm) {
+      document.getElementById("confirmModalTitle").textContent = title;
+      document.getElementById("confirmModalMessage").textContent = message;
+      confirmCallback = onConfirm;
+
+      const modal = document.getElementById("customConfirmModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      playSound('click');
+    }
+
+    function closeConfirmModal(accepted) {
+      const modal = document.getElementById("customConfirmModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+
+      if (accepted && typeof confirmCallback === "function") {
+        confirmCallback();
+      }
+      confirmCallback = null;
+    }
+
+    function promptDeleteAccount(accId) {
+      const acc = appState.accounts.find(a => a.id === accId);
+      if (!acc) return;
+
+      openConfirmModal(
+        "ลบรหัสเก็บของ",
+        `คุณต้องการลบ "${acc.name}" และไอเทมทั้งหมดในรหัสนี้หรือไม่? ข้อมูลจะไม่สามารถกู้คืนได้`,
+        () => {
+          recordHistory(`ลบรหัส ${acc.name}`, appState);
+          appState.accounts = appState.accounts.filter(a => a.id !== accId);
+          saveState();
+          renderAccounts();
+          playSound('delete');
+          showToast(`ลบ ${acc.name} เรียบร้อยแล้ว`, "info");
+        }
+      );
+    }
+
+    function promptResetAllData() {
+      openConfirmModal(
+        "รีเซ็ตข้อมูลทั้งหมด",
+        "คุณต้องการรีเซ็ตข้อมูลคลังทั้งหมดกลับเป็นค่าเริ่มต้นใช่หรือไม่? รายการสต็อกปัจจุบันจะถูกแทนที่",
+        () => {
+          appState.accounts = SEED_ACCOUNTS;
+          appState.history = [];
+          saveState();
+          renderAccounts();
+          renderLiveItemCounter();
+          renderHistoryLog();
+          playSound('delete');
+          showToast("รีเซ็ตเป็นค่าเริ่มต้นเรียบร้อย", "info");
+        }
+      );
+    }
+
+    // Account Modal logic
     function openAccountModal(accId = null) {
       const modal = document.getElementById("accountModal");
       const title = document.getElementById("modalAccountTitle");
@@ -1497,31 +1822,18 @@
       showToast("บันทึกรหัสสินค้าเรียบร้อยแล้ว", "success");
     }
 
-    function deleteAccount(accId) {
-      if (confirm("ต้องการลบรหัสนี้ออกจากคลังหรือไม่?")) {
-        recordHistory("ลบรหัสสินค้าออกจากคลัง", appState);
-        appState.accounts = appState.accounts.filter(a => a.id !== accId);
-        saveState();
-        renderAccounts();
-        playSound('delete');
-        showToast("ลบรหัสเรียบร้อยแล้ว", "info");
-      }
-    }
-
-    function populatePresetDropdown() {
+    // Single Item Modal logic
+    function populatePresetDropdowns() {
       const select = document.getElementById("itemPresetSelect");
-      select.innerHTML = `<option value="">-- เลือกจากรายการสำเร็จรูป (GPO Presets) --</option>`;
-      GPO_ITEM_PRESETS.forEach((preset, idx) => {
-        const option = document.createElement("option");
-        option.value = idx;
-        option.textContent = `${preset.icon} ${preset.name}`;
-        select.appendChild(option);
-      });
+      if (select) {
+        select.innerHTML = `<option value="">-- เลือกจากรายการสำเร็จรูป --</option>` +
+          ALL_GPO_ITEMS.map((p, idx) => `<option value="${idx}">${p.icon} ${p.name}</option>`).join('');
+      }
     }
 
     function handlePresetSelect(index) {
       if (index === "") return;
-      const preset = GPO_ITEM_PRESETS[index];
+      const preset = ALL_GPO_ITEMS[index];
       if (preset) {
         document.getElementById("itemName").value = preset.name;
       }
@@ -1529,8 +1841,8 @@
 
     function adjustInputQty(delta) {
       const input = document.getElementById("itemQuantity");
-      let val = parseInt(input.value) || 1;
-      val = Math.max(1, val + delta);
+      let val = parseInt(input.value, 10) || 0;
+      val = Math.max(0, val + delta);
       input.value = val;
     }
 
@@ -1557,9 +1869,9 @@
 
       const accId = document.getElementById("itemAccId").value;
       const name = document.getElementById("itemName").value.trim();
-      const quantity = parseInt(document.getElementById("itemQuantity").value) || 1;
+      const quantity = parseInt(document.getElementById("itemQuantity").value, 10) || 0;
 
-      const match = GPO_ITEM_PRESETS.find(p => p.name.toLowerCase() === name.toLowerCase());
+      const match = ALL_GPO_ITEMS.find(p => p.name.toLowerCase() === name.toLowerCase());
       const icon = match ? match.icon : "📦";
 
       const acc = appState.accounts.find(a => a.id === accId);
@@ -1575,10 +1887,11 @@
         renderAccounts();
         closeItemModal();
         playSound('success');
-        showToast(`เพิ่ม ${name} (${quantity} ชิ้น) สำเร็จ!`, "success");
+        showToast(`บันทึก ${name} (${quantity} ชิ้น) สำเร็จ!`, "success");
       }
     }
 
+    // Drawer and History
     function toggleHistoryDrawer() {
       const drawer = document.getElementById("historyDrawer");
       drawer.classList.toggle("translate-x-full");
@@ -1591,6 +1904,7 @@
 
     function renderHistoryLog() {
       const container = document.getElementById("historyLogList");
+      if (!container) return;
       container.innerHTML = "";
 
       const history = appState.history || [];
@@ -1615,7 +1929,6 @@
     /* ==========================================================================
        12. BACKUP, RESTORE & UTILITIES
        ========================================================================== */
-
     function exportBackup() {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
       const dl = document.createElement('a');
@@ -1650,18 +1963,6 @@
         }
       };
       reader.readAsText(file);
-    }
-
-    function resetAllData() {
-      if (confirm("ต้องการรีเซ็ตข้อมูลทั้งหมดกลับเป็นค่าเริ่มต้นใช่หรือไม่?")) {
-        appState.accounts = SEED_ACCOUNTS;
-        appState.history = [];
-        saveState();
-        renderAccounts();
-        renderLiveItemCounter();
-        renderHistoryLog();
-        showToast("รีเซ็ตเป็นค่าเริ่มต้นเรียบร้อย", "info");
-      }
     }
 
     function showToast(message, type = "info") {
