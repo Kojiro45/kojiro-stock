@@ -258,7 +258,7 @@
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-6 space-y-6">
 
     <!-- Filter Controls Bar -->
-    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 glass-panel p-3.5 rounded-3xl">
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 glass-panel p-3.5 rounded-3xl relative z-30">
       
       <!-- In-Page Live Filter -->
       <div class="relative flex-1">
@@ -274,23 +274,26 @@
           <option value="NAME_ASC">ชื่อรหัส (A-Z)</option>
         </select>
 
-        <!-- Backup & Data Tools Dropdown (Click-Toggle Fixed) -->
-        <div class="relative inline-block">
-          <button onclick="toggleBackupMenu(event)" class="glass-input px-3 py-2 rounded-2xl text-xs font-semibold text-slate-400 hover:text-cyanNeon flex items-center gap-1.5 transition-all cursor-pointer">
-            <i class="fa-solid fa-database"></i>
-            <span>สำรองข้อมูล</span>
+        <!-- Backup & Data Tools Dropdown (Fixed Z-Index Overlap) -->
+        <div class="relative inline-block z-40">
+          <button onclick="toggleBackupMenu(event)" class="glass-input px-3.5 py-2 rounded-2xl text-xs font-semibold text-slate-200 hover:text-cyanNeon flex items-center gap-1.5 transition-all cursor-pointer border border-cyanNeon/30 shadow-glow-cyan bg-obsidian-900">
+            <i class="fa-solid fa-database text-cyanNeon"></i>
+            <span>สำรอง / ดึงข้อมูล</span>
             <i class="fa-solid fa-chevron-down text-[10px]"></i>
           </button>
-          <div id="backupDropdownMenu" class="absolute right-0 top-11 w-48 glass-panel rounded-2xl shadow-2xl py-1 hidden z-40 border border-white/10">
-            <button onclick="exportBackup(); closeAllDropdowns();" class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-cyan-500/20 hover:text-cyanNeon flex items-center gap-2">
-              <i class="fa-solid fa-download"></i> ดาวน์โหลด Backup JSON
+          <div id="backupDropdownMenu" class="absolute right-0 top-11 w-56 glass-panel rounded-2xl shadow-2xl py-2 hidden z-50 border border-cyanNeon/40 bg-obsidian-950/95 backdrop-blur-2xl">
+            <button onclick="exportBackup(); closeAllDropdowns();" class="w-full text-left px-3.5 py-2.5 text-xs text-slate-200 hover:bg-cyan-500/20 hover:text-cyanNeon flex items-center gap-2.5 font-semibold transition-colors">
+              <i class="fa-solid fa-download text-cyanNeon text-sm"></i>
+              <span>📥 สำรองข้อมูล (JSON)</span>
             </button>
-            <label class="w-full text-left px-3 py-2 text-xs text-slate-300 hover:bg-emerald-500/20 hover:text-emeraldNeon flex items-center gap-2 cursor-pointer">
-              <i class="fa-solid fa-upload"></i> นำเข้าไฟล์ Backup
+            <label class="w-full text-left px-3.5 py-2.5 text-xs text-slate-200 hover:bg-emerald-500/20 hover:text-emeraldNeon flex items-center gap-2.5 font-semibold transition-colors cursor-pointer">
+              <i class="fa-solid fa-upload text-emeraldNeon text-sm"></i>
+              <span>📤 ดึงข้อมูลกลับ (JSON)</span>
               <input type="file" id="importFileInput" onchange="importBackup(event)" accept=".json" class="hidden">
             </label>
-            <button onclick="resetAllData(); closeAllDropdowns();" class="w-full text-left px-3 py-2 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2 border-t border-white/5">
-              <i class="fa-solid fa-arrow-rotate-left"></i> รีเซ็ตเป็นค่าสาธิต
+            <button onclick="resetAllData(); closeAllDropdowns();" class="w-full text-left px-3.5 py-2.5 text-xs text-rose-400 hover:bg-rose-500/20 flex items-center gap-2.5 font-semibold border-t border-white/10 mt-1 pt-2.5 transition-colors">
+              <i class="fa-solid fa-arrow-rotate-left"></i>
+              <span>รีเซ็ตเป็นค่าสาธิต</span>
             </button>
           </div>
         </div>
